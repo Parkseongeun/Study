@@ -5,15 +5,49 @@
 <meta charset="utf-8">
 <title>exam</title>
 <link rel="stylesheet" href="common.css" />
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="../js/jquery-latest.js"></script>
 <script type="text/javascript">
 $(function(){
-	var exam2 = $('.exam_wrap').eq(0);
-	var idx = 0;
-	exam2.find('button').click(function(){
-		exam2.find('li').eq(idx).css('background-color','yellow');
+	var ex1 = $('.exam_wrap').eq(0),
+	ex2 = $('.exam_wrap').eq(1),
+	ex3 = $('.exam_wrap').eq(2),
+	ex4 = $('.exam_wrap').eq(3);
+
+	var idx ,idx2 ,idx3;
+	idx = 0; // 순서대로
+	idx2 = ex2.find('li').length-1; // 거꾸로
+	idx3 = 0; // 한칸씩 움직임
+	idx4 = 0; // 한칸씩 움직임
+
+	ex1.find('button').click(function(){
+		ex1.find('li').eq(idx).css('background-color','yellow');
 		idx = idx+1;
 	});
+	ex2.find('button').click(function(){
+		ex2.find('li').eq(idx2).css('background-color','yellow');
+		idx2 = idx2-1;
+	});
+	ex3.find('button').click(function(){
+		ex3.find('li').css('background','none');
+		if ($(this).hasClass('plus')) {
+			idx3 = idx3+1;
+			ex3.find('li').eq(idx3).css('background-color','yellow');
+		} else if ($(this).hasClass('minus')) {
+			idx3 = idx3-1;
+			ex3.find('li').eq(idx3).css('background-color','yellow');
+		}
+	});
+	ex4.find('button').click(function(){
+		ex4.find('li').removeClass('active');
+		if ($(this).hasClass('plus')) {
+			idx4 = idx4+1;
+			ex4.find('li').eq(idx4).addClass('active');
+		} else if ($(this).hasClass('minus')) {
+			idx4 = idx4-1;
+			ex4.find('li').eq(idx4).addClass('active');
+		}
+	});
+
 });
 </script>
 </head>
@@ -73,8 +107,8 @@ $(function(){
 					<li>nine</li>
 				</ul>
 			</div>
-			<button type="button">plus</button>
-			<button type="button">minus</button>
+			<button type="button" class="plus">plus</button>
+			<button type="button" class="minus">minus</button>
 		</div>
         <div class="exam_wrap">
             <h1>Q. 순서대로 일치하게 하시고, 바로 전에 일치됐던 엘리먼트는 색을 지우시오.(클래스 제어)</h1>
@@ -91,8 +125,8 @@ $(function(){
                     <li>nine</li>
                 </ul>
             </div>
-            <button type="button">plus</button>
-            <button type="button">minus</button>
+			<button type="button" class="plus">plus</button>
+			<button type="button" class="minus">minus</button>
         </div>
 	</div>
 	<!-- container [e] -->
