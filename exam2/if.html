@@ -9,26 +9,25 @@
 <script type="text/javascript">
 $(function(){
 	var ex1 = $('.exam_wrap').eq(0),
-	ex2 = $('.exam_wrap').eq(1),
-	ex3 = $('.exam_wrap').eq(2),
-	ex4 = $('.exam_wrap').eq(3);
+		  ex2 = $('.exam_wrap').eq(1),
+		  ex3 = $('.exam_wrap').eq(2),
+		  ex4 = $('.exam_wrap').eq(3);
+	
+	var idx = 0,
+		  idx2 = ex2.find('li').length-1,
+		  idx3 = 0,
+		  idx4 = 0;
 
-	var idx ,idx2 ,idx3;
-	idx = 0; // 순서대로
-	idx2 = ex2.find('li').length-1; // 거꾸로
-	idx3 = 0; // 한칸씩 움직임
-	idx4 = 0; // 한칸씩 움직임
-
-	ex1.find('button').click(function(){
+	var fnc1 = function(){
 		ex1.find('li').eq(idx).css('background-color','yellow');
 		idx = idx+1;
-	});
-	ex2.find('button').click(function(){
+	}
+	var fnc2 = function(){
 		ex2.find('li').eq(idx2).css('background-color','yellow');
 		idx2 = idx2-1;
-	});
-	ex3.find('button').click(function(){
-		ex3.find('li').css('background','none');
+	}
+	var fnc3 = function(){
+		ex3.find('li').css('background','');
 		if ($(this).hasClass('plus')) {
 			idx3 = idx3+1;
 			ex3.find('li').eq(idx3).css('background-color','yellow');
@@ -36,8 +35,8 @@ $(function(){
 			idx3 = idx3-1;
 			ex3.find('li').eq(idx3).css('background-color','yellow');
 		}
-	});
-	ex4.find('button').click(function(){
+	}
+	var fnc4 = function(){
 		ex4.find('li').removeClass('active');
 		if ($(this).hasClass('plus')) {
 			idx4 = idx4+1;
@@ -46,8 +45,12 @@ $(function(){
 			idx4 = idx4-1;
 			ex4.find('li').eq(idx4).addClass('active');
 		}
-	});
+	}
 
+	ex1.find('button').on('click', fnc1);
+	ex2.find('button').on('click', fnc2);
+	ex3.find('button').on('click', fnc3);
+	ex4.find('button').on('click', fnc4);
 });
 </script>
 </head>
