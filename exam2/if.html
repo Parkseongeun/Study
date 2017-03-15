@@ -13,10 +13,9 @@ $(function() {
 		ex3 = $('.exam_wrap').eq(2),
 		ex4 = $('.exam_wrap').eq(3);
 	
-	var idx = 0,
-		idx2 = ex2.find('li').length - 1,
-		idx3 = 0,
-		idx4 = 0;
+	var idx, idx2, idx3, idx4;
+	idx = idx3 =idx4 = 0,
+	idx2 = ex2.find('li').length - 1;
 
 	var fnc1 = function() {
 		ex1.find('li').eq(idx).css('background-color','yellow');
