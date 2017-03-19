@@ -1,8 +1,8 @@
 # Effects
-<br>
+
 ## jQuery api 참고
 [https://oscarotero.com/jquery/](https://oscarotero.com/jquery/)
-<br>
+
 ## Basics
 ### .hide()
 > 애니메이션 없이 요소를 감추고 싶을 때 쓰인다.
