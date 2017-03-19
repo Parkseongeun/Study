@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>exam</title>
+<link rel="stylesheet" href="common.css" />
+<script src="../js/libs/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	var ex1 = $('.exam_wrap').eq(0),
+		ex2 = $('.exam_wrap').eq(1),
+		ex3 = $('.exam_wrap').eq(2),
+		ex4 = $('.exam_wrap').eq(3);
+	
+	var idx = idx3 = idx4 = 0,
+		idx2 = ex2.find('li').length - 1;
+
+	var fnc1 = function() {
+		ex1.find('li').eq(idx).css('background-color','yellow');
+		idx += 1;
+	}
+
+	var fnc2 = function() {
+		ex2.find('li').eq(idx2).css('background-color','yellow');
+		idx2 -= 1;
+	}
+
+	var fnc3 = function() {
+		ex3.find('li').css('background','');
+		if ( $(this).hasClass('plus') ) {
+			idx3 += 1;
+			ex3.find('li').eq(idx3).css('background-color','yellow');
+		} else if ( $(this).hasClass('minus') ) {
+			idx3 -= 1;
+			ex3.find('li').eq(idx3).css('background-color','yellow');
+		}
+	}
+
+	var fnc4 = function() {
+		ex4.find('li').removeClass('active');
+		if ( $(this).hasClass('plus') ) {
+			idx4 += 1;
+			ex4.find('li').eq(idx4).addClass('active');
+		} else if ( $(this).hasClass('minus') ) {
+			idx4 -= 1;
+			ex4.find('li').eq(idx4).addClass('active');
+		}
+	}
+
+	ex1.find('button').on('click', fnc1);
+	ex2.find('button').on('click', fnc2);
+	ex3.find('button').on('click', fnc3);
+	ex4.find('button').on('click', fnc4);
+});
+</script>
+</head>
+<body>
+<!-- wrapper [s] -->
+<div id="wrapper">
+	<!-- header [s] -->
+	<div id="header">
+	</div>
+	<!-- header [e] -->
+	<hr />
+	<!-- container [s] -->
+	<div id="container">
+		<div class="exam_wrap">
+			<h1>Q. 처음부터 순서대로 일치하게 하시오.</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<ul>
+					<li>one</li>
+					<li>two</li>
+					<li>three</li>
+					<li>four</li>
+					<li>five</li>
+					<li>six</li>
+					<li>seven</li>
+					<li>eight</li>
+				</ul>
+			</div>
+			<button type="button">plus</button>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. 마지막부터 역순대로 일치하게 하시오.</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<ul>
+					<li>one</li>
+					<li>two</li>
+					<li>three</li>
+					<li>four</li>
+					<li>five</li>
+					<li>six</li>
+					<li>seven</li>
+				</ul>
+			</div>
+			<button type="button">minus</button>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. 순서대로 일치하게 하시고, 바로 전에 일치됐던 엘리먼트는 색을 지우시오.</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<ul>
+					<li style="background-color:yellow">one</li>
+					<li>two</li>
+					<li>three</li>
+					<li>four</li>
+					<li>five</li>
+					<li>six</li>
+					<li>seven</li>
+					<li>eight</li>
+					<li>nine</li>
+				</ul>
+			</div>
+			<button type="button" class="plus">plus</button>
+			<button type="button" class="minus">minus</button>
+		</div>
+        <div class="exam_wrap">
+            <h1>Q. 순서대로 일치하게 하시고, 바로 전에 일치됐던 엘리먼트는 색을 지우시오.(클래스 제어)</h1>
+            <div class="exam_q"><!-- 부모 -->
+                <ul>
+                    <li class="active">one</li>
+                    <li>two</li>
+                    <li>three</li>
+                    <li>four</li>
+                    <li>five</li>
+                    <li>six</li>
+                    <li>seven</li>
+                    <li>eight</li>
+                    <li>nine</li>
+                </ul>
+            </div>
+			<button type="button" class="plus">plus</button>
+			<button type="button" class="minus">minus</button>
+        </div>
+	</div>
+	<!-- container [e] -->
+	<hr />
+	<!-- footer [s] -->
+	<div id="footer">
+	</div>
+	<!-- footer [e] -->
+</div>
+<!-- wrapper [e] -->
+</body>
+</html>
