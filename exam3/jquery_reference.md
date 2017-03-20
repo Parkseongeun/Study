@@ -143,3 +143,48 @@ $( "#ref_slideDown").slideDown('slow');
 ```md
 $( "#ref_slideToggle").slideToggle(500); 
 ```
+
+## 정독 필요
+### CSS
+```md
+jQuery.cssHooks
+jQuery.cssNumber
+jQuery.escapeSelector()
+```
+### Filtering
+```md
+.map()
+.slice()
+```
+### Event Handler Attachment
+```md
+.bind()
+.delegate()
+.one()
+.trigger()
+.triggerHandler()
+.unbind()
+.undelegate()
+```
+### Event Object
+```md
+event.currentTarget
+event.delegateTarget
+event.data
+event.isDefaultPrevented()
+event.isImmediatePropagationStopped()
+event.isPropagationStopped()
+event.metaKey
+event.namespace
+event.pageX
+event.pageY
+event.preventDefault()
+event.relatedTarget
+event.result
+event.stopImmediatePropagation()
+event.stopPropagation()
+event.target
+event.timeStamp
+event.type
+event.which
+```
