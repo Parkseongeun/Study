@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>exam</title>
+<link rel="stylesheet" href="common.css" />
+<script src="../js/libs/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(function() {
+    /*
+    [과제]
+    1. 5개의 input 중 짝수는 text / 홀수는 checkbox 를 만들어보기
+    2. 구구단 7단을 반복문을 이용해 만들어보기
+    3. 반복문 if/while 문을 이용해 모든 구구단 만들어보기
+
+    1번은 태그가 노출되면 되고, 2번은 문자가 노출되게 해주세요
+
+    제출 : 3/23 10:00
+    */
+    var quizFunc = {
+        init : function () {
+            quizFunc.setBtn();
+            quizFunc.bindEvents();
+        },
+        setBtn : function () {
+            this.btn1 = $('.exam_wrap').eq(0).find('button');
+            this.btn2 = $('.exam_wrap').eq(1).find('button');
+            this.btn3 = $('.exam_wrap').eq(2).find('button');
+        },
+        bindEvents : function () {
+            this.btn1.on('click', quizFunc.quiz1)
+            this.btn2.on('click', quizFunc.quiz2)
+            this.btn3.on('click', quizFunc.quiz3)
+        },
+        quiz1 : function() {
+            var answer = ' ';
+            for (var i=1; i<=5; i++) {
+                this.answer1 += '<input type="';
+                if (i%2===0) {
+                    this.answer1 += 'text';
+                } else if (i%2===1) {
+                    this.answer1 += 'checkbox';
+                }
+                this.answer1 += '" /><br />';
+            }
+            $('.exam_q').get(0).innerHTML = this.answer1;
+        },
+        quiz2 : function() {
+
+        },
+        quiz3 : function() {
+
+        }
+    }
+    quizFunc.init();
+});
+</script>
+</head>
+<body>
+<!-- wrapper [s] -->
+<div id="wrapper">
+	<!-- header [s] -->
+	<div id="header">
+	</div>
+	<!-- header [e] -->
+	<hr />
+	<!-- container [s] -->
+	<div id="container">
+		<div class="exam_wrap">
+			<h1>Q. 5개의 input 중 짝수는 text / 홀수는 checkbox 를 만들어보기</h1>
+			<div class="exam_q">
+
+			</div>
+			<button type="button">view</button>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. 구구단 7단을 반복문을 이용해 만들어보기</h1>
+			<div class="exam_q"><!-- 부모 -->
+			</div>
+			<button type="button">view</button>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. 반복문 if/while 문을 이용해 모든 구구단 만들어보기</h1>
+			<div class="exam_q"><!-- 부모 -->
+			</div>
+			<button type="button">view</button>
+		</div>
+	</div>
+	<!-- container [e] -->
+	<hr />
+	<!-- footer [s] -->
+	<div id="footer">
+	</div>
+	<!-- footer [e] -->
+</div>
+<!-- wrapper [e] -->
+</body>
+</html>
