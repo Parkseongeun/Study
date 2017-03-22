@@ -90,16 +90,17 @@ $(function() {
 			$('.exam_wrap').eq(1).find('.exam_q').get(0).innerHTML = answer2;
         },
         quiz3 : function() {
-			var answer3 = ' ';
+			var answer3 = '<ul>';
 			var i = 1;
 			while (i <= 9) {
-				answer3 += '<span>[' + i + '단]<br />';
+				answer3 += '<li>[' + i + '단]<br />';
 				for (var j =1; j<=9 ; j++) {
 					answer3 += i + 'x' + j + '=' + i*j + '<br />'; // 1~9단
 				}
 				i++;
-				answer3 += '</span>';
-			}
+				answer3 += '</li>';
+			}			
+			answer3 += '</ ul>';
 			$('.exam_wrap').eq(2).find('.exam_q').get(0).innerHTML = answer3;
         }
     }
