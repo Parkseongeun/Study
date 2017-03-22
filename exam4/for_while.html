@@ -5,6 +5,42 @@
 <meta charset="utf-8">
 <title>exam</title>
 <link rel="stylesheet" href="common.css" />
+</head>
+<body>
+<!-- wrapper [s] -->
+<div id="wrapper">
+	<!-- header [s] -->
+	<div id="header">
+	</div>
+	<!-- header [e] -->
+	<hr />
+	<!-- container [s] -->
+	<div id="container">
+		<div class="exam_wrap">
+			<h1>Q. 5개의 input 중 짝수는 text / 홀수는 checkbox 를 만들어보기</h1>
+			<div class="exam_q"></div>
+			<button type="button">view</button>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. 구구단 7단을 반복문을 이용해 만들어보기</h1>
+			<div class="exam_q"></div>
+			<button type="button">view</button>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. 반복문 if/while 문을 이용해 모든 구구단 만들어보기</h1>
+			<div class="exam_q"></div>
+			<button type="button">view</button>
+		</div>
+	</div>
+	<!-- container [e] -->
+	<hr />
+	<!-- footer [s] -->
+	<div id="footer">
+	</div>
+	<!-- footer [e] -->
+</div>
+<!-- wrapper [e] -->
+
 <script src="../js/libs/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
 $(function() {
@@ -34,66 +70,42 @@ $(function() {
             this.btn3.on('click', quizFunc.quiz3)
         },
         quiz1 : function() {
-            var answer = ' ';
+            var answer1 = ' ';
             for (var i=1; i<=5; i++) {
-                this.answer1 += '<input type="';
+                answer1 += '<input type="';
                 if (i%2===0) {
-                    this.answer1 += 'text';
+                    answer1 += 'text';
                 } else if (i%2===1) {
-                    this.answer1 += 'checkbox';
+                    answer1 += 'checkbox';
                 }
-                this.answer1 += '" /><br />';
+                answer1 += '" /><br />';
             }
-            $('.exam_q').get(0).innerHTML = this.answer1;
+            $('.exam_wrap').eq(0).find('.exam_q').get(0).innerHTML = answer1;
         },
         quiz2 : function() {
-
+			var answer2 = '[7단]<br />';
+			for (var i=1; i<=9; i++) {
+				answer2 += 7 + 'x' + i + '=' + 7*i + '<br />'; // 7단
+			}
+			$('.exam_wrap').eq(1).find('.exam_q').get(0).innerHTML = answer2;
         },
         quiz3 : function() {
-
+			var answer3 = ' ';
+			var i = 1;
+			while (i <= 9) {
+				answer3 += '<span>[' + i + '단]<br />';
+				for (var j =1; j<=9 ; j++) {
+					answer3 += i + 'x' + j + '=' + i*j + '<br />'; // 1~9단
+				}
+				i++;
+				answer3 += '</span>';
+			}
+			$('.exam_wrap').eq(2).find('.exam_q').get(0).innerHTML = answer3;
         }
     }
     quizFunc.init();
 });
 </script>
-</head>
-<body>
-<!-- wrapper [s] -->
-<div id="wrapper">
-	<!-- header [s] -->
-	<div id="header">
-	</div>
-	<!-- header [e] -->
-	<hr />
-	<!-- container [s] -->
-	<div id="container">
-		<div class="exam_wrap">
-			<h1>Q. 5개의 input 중 짝수는 text / 홀수는 checkbox 를 만들어보기</h1>
-			<div class="exam_q">
 
-			</div>
-			<button type="button">view</button>
-		</div>
-		<div class="exam_wrap">
-			<h1>Q. 구구단 7단을 반복문을 이용해 만들어보기</h1>
-			<div class="exam_q"><!-- 부모 -->
-			</div>
-			<button type="button">view</button>
-		</div>
-		<div class="exam_wrap">
-			<h1>Q. 반복문 if/while 문을 이용해 모든 구구단 만들어보기</h1>
-			<div class="exam_q"><!-- 부모 -->
-			</div>
-			<button type="button">view</button>
-		</div>
-	</div>
-	<!-- container [e] -->
-	<hr />
-	<!-- footer [s] -->
-	<div id="footer">
-	</div>
-	<!-- footer [e] -->
-</div>
-<!-- wrapper [e] -->
 </body>
 </html>
