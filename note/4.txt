@@ -1,0 +1,89 @@
+
+4차
+
+*switch 값이정해진 조건을 쓰기에 적합.
+var a = 74;
+switch(){
+}
+
+* while 반복하는 구문 
+몇번이 돌아야할지 모호할때
+var a = Math.random() +10;
+while ( a ===5){
+  console.log(a);
+  a++;
+}
+
+* for (기본값;true구문;증감연산자)
+for( var a=0; a <$('li').length; a++){}
+//이렇게 하면 성능이슈면에서 li의 태그를 계속 읽고 length값을 계속 계산해줘야하기떄문에
+
+to-be
+for( var a = 0, max=$('li').length; a<max; a++){}
+
+//떄로는 이렇게도 쓰지만 위에것을 권장
+var a = 0,
+    max=$('li').length;
+for( ; a<max; ){
+  a++;
+}
+
+* html('값') -> .get(0).innrHTML=값;
+jqeury 선택자에 get(0).을 붙이면 javascript 선택자로 바꿀수 있다.(속도가 더빠르다는)
+
+
+*배열 
+var arry = new Array;
+var arry = []; // 리터럴 방식 (권장)
+
+* tagPush = ''; // String으로 쓰겠다.
+* arrayObj = [[a,b,c],[d,e,f],[g,h,i]];
+  td = arrayObj[i][j];
+
+* 객체 
+속성과 값을 담을 수 있는 구문.
+객체지향프로그래밍 ; 가독성이 좋기 위해서 쓴다. 유지보수, 잘 짜여진 함수
+
+var objFunc = {
+  a : 'text', //속성:값
+  b : 3,
+  c : function(){
+
+  },
+  d : ['.stnc'],
+  e : {
+
+  }
+};
+console.log(objFunc.a); // 'text'
+console.log(objFunc.b); // 3
+console.log(objFunc.c); // 함수구문이 뜸 텍스트로
+
+objFunc.c() // c함수 실행
+
+var objFunc ={
+  init : function(){
+    this.setElements();
+  },
+  setElemetents: function(){
+    this.obj = $('.btn');
+  },
+  bindElement
+};
+objFunc.init();
+
+
+
+
+
+
+
+
+};
+------------------------------------------------
+
+exam4 구구단
+
+
+
+
