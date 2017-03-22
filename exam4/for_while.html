@@ -34,19 +34,20 @@ $(function() {
             this.btn3.on('click', quizFunc.quiz3)
         },
         quiz1 : function() {
-            var answer = ' ';
+            var answer1 = ' ';
             for (var i=1; i<=5; i++) {
-                this.answer1 += '<input type="';
+                answer1 += '<input type="';
                 if (i%2===0) {
-                    this.answer1 += 'text';
+                    answer1 += 'text';
                 } else if (i%2===1) {
-                    this.answer1 += 'checkbox';
+                    answer1 += 'checkbox';
                 }
-                this.answer1 += '" /><br />';
+                answer1 += '" /><br />';
             }
-            $('.exam_q').get(0).innerHTML = this.answer1;
+            $('.exam_q').get(0).innerHTML = answer1;
         },
         quiz2 : function() {
+
 
         },
         quiz3 : function() {
