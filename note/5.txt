@@ -1,0 +1,60 @@
+[5차]
+
+* 함수의종류
+선언(호이스팅가능)/익명(권장)
+
+* 인자
+funcion sum(a,b){
+  var c = a + b;
+  return c; // 반환값 
+  return { // 객체를 반환할수도있다.(권장하지않음)
+    init : function(){
+
+    }
+  }
+}
+var idx = sum(2,5);
+
+
+(function(){
+
+
+})(인자값,인자값);
+
+// 즉시실행함수
+// 충돌방지
+// 반응형브라우저체크, 디바이스 체크, load 된 후 한번만 쓰고 버릴 함수
+<script>
+(function(){
+
+
+})(window,window.jQuery); //window로 인자값 넣는건 약어로 쓰겠다.라는것
+// window.jQuery 는 고유명사라서 충돌나지 않기때문에, 무조건 저렇게 씀
+</script>
+
+
+(function(){
+  var objFunc = {
+    init : function(){
+
+    }
+  };
+  $(function(){ //dom시작 된 후 호출
+    objFunc.init();
+  });
+
+})(win,$);
+
+
+
+- this.변수 => 상위 객체 내에서의 전역변수
+- var 변수 => 해당 함수 내에서의 지역변수
+
+
+
+[on/bind]
+개발자가 ajax같은 html내에 선택자가 안보이는 상황에
+on은 클릭할때마다 체크하기때문에 데이터가 안들어와도 다 되는데
+bind는 다 들어와야 체크가 가능하다.
+
+
