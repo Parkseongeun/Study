@@ -9,6 +9,7 @@
 <script type="text/javascript">
 (function(){
 	
+    // Q1, Q2
 	var quizFunc = {
 		init : function() {
             quizFunc.setBtn();
@@ -16,106 +17,133 @@
 		},
 		setBtn : function() {
             this.btn1 = $('.exam_wrap').eq(0).find('button');
-            //this.btn2 = $('.exam_wrap').eq(1).find('button');
-            //this.btn3 = $('.exam_wrap').eq(2).find('button');
-            //this.btn4 = $('.exam_wrap').eq(3).find('button');
-            //this.btn5 = $('.exam_wrap').eq(4).find('button');
-            //this.btn6 = $('.exam_wrap').eq(5).find('button');
-            //this.btn7 = $('.exam_wrap').eq(6).find('button');
+            this.btn2 = $('.exam_wrap').eq(1).find('button');
 
 			this.ex1 = $('.exam_wrap').eq(0);
-				//ex2 = $('.exam_wrap').eq(1),
-				//ex3 = $('.exam_wrap').eq(2),
-				//ex4 = $('.exam_wrap').eq(3),
-				//ex5 = $('.exam_wrap').eq(4),
-				//ex6 = $('.exam_wrap').eq(5),
-				//ex7 = $('.exam_wrap').eq(6);
-
-			//var idx = curIdx3 = curIdx4 = 0,
-				//idx2 = ex2.find('li').length - 1,
-				//oldIdx3 = curIdx3,
-				//oldIdx4 = curIdx4,
+			this.ex2 = $('.exam_wrap').eq(1);
 				
 			this.idx = 0;
+            this.idx2 = this.ex2.find('li').length - 1;
+            this.curColor = 0;
 		},
 		bindEvents : function() {
 			this.ex1.find('button').on('click', $.proxy(this.fnc1, this));
-			//ex2.find('button').on('click', quizFunc.fnc2);
-			//ex3.find('button').on('click', quizFunc.fnc3);
-			//ex4.find('button').on('click', quizFunc.fnc4);
-		},		
+			this.ex2.find('button').on('click', $.proxy(this.fnc2, this));
+		},
+        changeColors : function(){
+            this.colors = ['red','orange','yellow','green','cyan','blue','purple','gray'];
+            for (this.idxColor = this.curColor; this.idxColor < this.colors.length; this.idxColor++) {
+                return this.colors[this.idxColor];
+            }
+            this.curColor = 0;
+        },
 		fnc1 : function() {
-			this.curColor = 0;
-			var changeColors = function(){
-				// this.colors = ['red','orange','yellow','green','cyan','blue','purple','gray'];
-				this.colors = ['red','orange','yellow'];
-				for (this.idxColor = this.curColor; this.idxColor < this.colors.length; this.idxColor++) {
-					return this.colors[this.idxColor];
-				}
-				this.curColor = 0;
-			}
-			console.log(this.idxColor, this.idx, changeColors());
-			this.ex1.find('li').eq(this.idx).css('background-color', changeColors());
+			this.ex1.find('li').eq(this.idx).css('background-color', this.changeColors());
 			this.idx++;
 			if ( this.idx >= this.ex1.find('li').length) { 
 				this.idx = 0;
 				this.curColor++;
 			}
-		}
-		/*,
+		},
 		fnc2 : function() {
-			quizFunc.changeColors;
-			ex2.find('li').eq(idx2).css('background-color', quizFunc.changeColors);
-			idx2 -= 1;
-			if ( idx2 < 0) { 
-				idx2 = ex2.find('li').length -1;
-				curColor++;
+			this.ex2.find('li').eq(this.idx2).css('background-color', this.changeColors());
+			this.idx2--;
+			if ( this.idx2 < 0) { 
+				this.idx2 = this.ex2.find('li').length -1;
+				this.curColor++;
 			}
-		},
-		fnc3 : function() {
-			var fncAct = function() {
-				quizFunc.changeColors;
-				ex3.find('li').eq(oldIdx3).css('background','');
-				ex3.find('li').eq(curIdx3).css('background-color', quizFunc.changeColors);
-				oldIdx3 = curIdx3;
-				curColor++;
-			}
-			var prevFnc = function(){
-				curIdx3 -= 1;
-				if ( curIdx3 < 0) { curIdx3 = ex3.find('li').length - 1; }
-				fncAct();
-			}
-			var nextFnc = function(){
-				curIdx3 += 1;
-				if ( curIdx3 >= ex3.find('li').length) { curIdx3 = 0; }
-				fncAct();
-			}
-			if ($(this).hasClass('minus')) prevFnc();
-			if ($(this).hasClass('plus')) nextFnc();
-		},
-		fnc4 : function() {
-			var fncAct = function() {
-				ex4.find('li').eq(oldIdx4).removeClass('active');
-				ex4.find('li').eq(curIdx4).addClass('active');
-				oldIdx4 = curIdx4;
-			}
-			var prevFnc = function(){
-				curIdx4 -= 1;
-				if ( curIdx4 < 0) { curIdx4 = ex4.find('li').length - 1; }
-				fncAct();
-			}
-			var nextFnc = function(){
-				curIdx4 += 1;
-				if ( curIdx4 >= ex4.find('li').length) { curIdx4 = 0; }
-				fncAct();
-			}
-			if ($(this).hasClass('minus')) prevFnc();
-			if ($(this).hasClass('plus')) nextFnc();
 		}
-		*/
 	}
+
+    //Q3
+	var quizFunc2 = {
+		init : function() {
+            quizFunc2.setBtn();
+            quizFunc2.bindEvents();
+		},
+		setBtn : function() {
+            this.btn3 = $('.exam_wrap').eq(2).find('button');
+			this.ex3 = $('.exam_wrap').eq(2);
+            this.curIdx3 = 0;
+            this.oldIdx3 = this.curIdx3;
+            this.curColor = 0;
+		},
+		bindEvents : function() {
+			this.ex3.find('button').on('click', $.proxy(this.fnc3, this));
+		},
+        changeColors : function(){
+            this.colors = ['red','orange','yellow','green','cyan','blue','purple','gray','darkgray'];
+            for (this.idxColor = this.curColor; this.idxColor <= this.colors.length; this.idxColor++) {
+                return this.colors[this.idxColor];
+            }
+            this.curColor = 0;
+        },
+        fncAct : function() {
+            this.changeColors();
+            this.ex3.find('li').eq(this.oldIdx3).css('background','');
+            this.ex3.find('li').eq(this.curIdx3).css('background-color', this.changeColors());
+            this.oldIdx3 = this.curIdx3;
+            this.curColor++;
+        },
+        prevFnc : function(){
+            this.curIdx3--;
+            if ( this.curIdx3 < 0) { this.curIdx3 = this.ex3.find('li').length - 1; }
+            this.fncAct();
+        },
+        nextFnc : function(){
+            this.curIdx3++;
+            if ( this.curIdx3 >= this.ex3.find('li').length) { this.curIdx3 = 0; }
+            this.fncAct();
+        },
+		fnc3 : function(e) {
+			btn = $(e.currentTarget);
+			if (btn.hasClass('minus')) { quizFunc2.prevFnc(); }
+            else if (btn.hasClass('plus')) { quizFunc2.nextFnc(); }
+		}
+	}
+
+    
+    //Q4
+	var quizFunc3 = {
+		init : function() {
+            quizFunc3.setBtn();
+            quizFunc3.bindEvents();
+		},
+		setBtn : function() {
+            this.btn4 = $('.exam_wrap').eq(3).find('button');
+			this.ex4 = $('.exam_wrap').eq(3);
+            this.curIdx4 = 0;
+            this.oldIdx4 = this.curIdx4;
+		},
+		bindEvents : function() {
+			this.ex4.find('button').on('click', $.proxy(this.fnc4, this));
+		},
+        fncAct : function() {
+            this.ex4.find('li').eq(this.oldIdx4).removeClass('active');
+            this.ex4.find('li').eq(this.curIdx4).addClass('active');
+            this.oldIdx4 = this.curIdx4;
+        },
+        prevFnc : function(){
+            this.curIdx4--;
+            if ( this.curIdx4 < 0) { this.curIdx4 = this.ex4.find('li').length - 1; }
+            this.fncAct();
+        },
+        nextFnc : function(){
+            this.curIdx4++;
+            if ( this.curIdx4 >= this.ex4.find('li').length) { this.curIdx4 = 0; }
+            this.fncAct();
+        },
+		fnc4 : function(e) {
+			btn = $(e.currentTarget);
+			if (btn.hasClass('minus')) { quizFunc3.prevFnc(); }
+            else if (btn.hasClass('plus')) { quizFunc3.nextFnc(); }
+		}
+	}
+
     $(function() {
         quizFunc.init();
+        quizFunc2.init();
+        quizFunc3.init();
     });
 })(window,$);
 </script>
@@ -197,21 +225,6 @@
 			<button type="button" class="plus">plus</button>
 			<button type="button" class="minus">minus</button>
         </div>
-		<div class="exam_wrap">
-			<h1>Q. 5개의 input 중 짝수는 text / 홀수는 checkbox 를 만들어보기</h1>
-			<div class="exam_q"></div>
-			<button type="button">view</button>
-		</div>
-		<div class="exam_wrap">
-			<h1>Q. 구구단 7단을 반복문을 이용해 만들어보기</h1>
-			<div class="exam_q"></div>
-			<button type="button">view</button>
-		</div>
-		<div class="exam_wrap">
-			<h1>Q. 반복문 if/while 문을 이용해 모든 구구단 만들어보기</h1>
-			<div class="exam_q"></div>
-			<button type="button">view</button>
-		</div>
 	</div>
 	<!-- container [e] -->
 	<hr />
