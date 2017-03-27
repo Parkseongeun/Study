@@ -66,14 +66,14 @@
 			this.ex3 = $('.exam_wrap').eq(2);
             this.curIdx3 = 0;
             this.oldIdx3 = this.curIdx3;
-            this.curColor = 0;
+            this.curColor = 1;
 		},
 		bindEvents : function() {
 			this.ex3.find('button').on('click', $.proxy(this.fnc3, this));
 		},
         changeColors : function(){
             this.colors = ['red','orange','yellow','green','cyan','blue','purple','gray','darkgray'];
-            for (this.idxColor = this.curColor; this.idxColor <= this.colors.length; this.idxColor++) {
+            for (this.idxColor = this.curColor; this.idxColor < this.colors.length; this.idxColor++) {
                 return this.colors[this.idxColor];
             }
             this.curColor = 0;
