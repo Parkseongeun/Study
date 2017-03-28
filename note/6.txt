@@ -1,0 +1,73 @@
+this.변수;
+this.변수;
+this.변수;
+this.변수; ';'으로 쓰자.객체 한줄에 저장 끝.
+
+btn.on('click',function(){
+  var _this = $(this); //저장하고 쓰는게 셀렉터를 또 읽지않는 이유로 성능최적화에 더 좋다.
+});
+
+setElements 의 함수를 만들었으면 성격에 맞는 것만 안에 선언해주기.
+
+$.trim() 
+ - 문자를 비교하거나 했을때 실수로 들어가는 공백이나그런걸 문자만! 가져올수 있다
+var _this = $(e.currentTarget);
+$.trim(_this.text());
+
+
+[7차]
+
+var obj = {
+    name : '',
+    setElements :'',
+    tel : 
+}
+
+// for문돌려서 객체 가져오는방법
+for ( var key in obj) {
+    console.log(key(속성을가져오고),obj[key](값을가져온다));
+}
+//속성 삭제방법
+delete obj.tel;
+
+
+** 배열
+값으로 활용할때 가장 많이쓰는 배열 (인덱스로만 움직이는)
+var arrayObj = new Array();
+
+var arrayObj = []; // 리터럴 방식으로한다.
+arrayObj[0] = 데이터1;
+arrayObj[2] = 데이터3;
+arrayObj[1] = 데이터2;
+---------- or -----------
+var arrayObj2 = [123, 'string', true, function(){}, {}, [123,124]];
+---------- or -----------
+var arrayObj = []; // 순차적으로 넣는데. push (권장)
+arrayObj.push(데이터1);
+arrayObj.push(데이터2);
+arrayObj.push(데이터3);
+
+//배열에서 기본적으로 제공되는 메소드
+join - 문자열로 리턴 - 문자열로 바꿔서 모두 합치겠다. (''는 다빼고 문자열로 합쳐진다, 안쓰면 ''까지 합쳐짐)
+reverse - 거꾸로 변경
+sort - 배열 정렬
+concat - 배열 이어 붙임
+slice - 삭제/추가
+push , pop - 맨뒤 추가 /삭제
+shift, unshift - 맨앞 추가/ 삭제
+
+
+-----------------------------------------
+
+* 짜고싶은 JS UI찾기
+
+관리자페이지 draggable tab 구현!!
+이미지 중앙crop
+
+취합하기
+
+outside 이벤트 활용?
+
+
+
+
