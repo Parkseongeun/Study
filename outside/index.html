@@ -87,7 +87,7 @@ button::-moz-focus-inner{padding:0;border:0}
         },
         layerHideFunc : function () {
             this.keyShift = false;
-            this.layerPos.off('keydown keyup focusoutside clickoutside');
+            this.layerPos.off('keydown keyup focusoutside clickoutside');   //무조건 off 시켜줘야 stack overflow 안뜸.
             this.layerArea.fadeOut('fast');
             this.btnObj.focus();
         },
@@ -95,8 +95,8 @@ button::-moz-focus-inner{padding:0;border:0}
             if(e.type === 'keydown'){
                 console.log('keydown');
                 if(e.keyCode !== 16 || e.which !== 16) return;  // shift 키 눌러짐 확인
-                this.keyShift = true; //shift 담고
-            }else if(e.type === 'keyup'){
+                this.keyShift = true; //shift 담고 ('true'라는 변수를 가지고있는거다.)
+            }else if(e.type === 'keyup'){ // shift를 가져온다음 shift를 뗀 순간을 읽기 위해서 keyup 의 처리도 해준다.
                 console.log('keyup');
                 if(e.keyCode !== 16 || e.which !== 16) return;
                 this.keyShift = false; // shift 빈바구니(초기화)
