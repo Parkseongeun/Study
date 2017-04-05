@@ -59,59 +59,47 @@
     'use strict';
     var avatarGenerator = {
         init : function () {
-            avatarGenerator.setElements();
-            avatarGenerator.bindEvents();
-            //avatarGenerator.setting();
+            this.setElements();
+            this.bindEvents();
+            this.setting();
         },
         setElements : function () {
             this.btn = $('.btn_random');
             this.viewer = $('.swiper-slide');
-            this.arrayAvatar = ['red','orange','yellow','green','blue'];
-            this.oldRandom = this.curRandom;
+        },
+        arrayInitial : function () {
+            this.arrayAvatar = [0,1,2,3,4];
         },
         bindEvents : function () {
             this.btn.on('click', $.proxy(this.avatarSelect, this));
         },
+        setting : function () {
+            this.arrayInitial();
+            this.randomFnc();
+            this.randomWhile();
+            this.viewer.eq(this.curIdx).show();
+        },
         randomFnc : function () {
             this.curRandom = Math.floor(Math.random()*this.arrayAvatar.length); // 배열의 인덱스 값을 랜덤으로 추출
-            this.oldRandom = this.curRandom;
-            return this.curRandom;
+            this.curIdx = this.arrayAvatar[this.curRandom];
         },
-        /*
-        setting : function () { // 초기 랜덤 값 설정
-            var idx = this.randomFnc();
-            this.viewer.eq(this.randomFnc()).show();
-            this.selectAvatar = this.arrayAvatar.splice(idx,1)
-        },
-        */
         avatarSelect : function () {   // 5개 랜덤 실행
-            this.idx = this.randomFnc();
-            //console.log(idx,  this.arrayAvatar);
-            this.selectAvatar = this.arrayAvatar.splice(this.idx,1)
-            //console.log('최종 : ' , this.selectAvatar);
-            //var idx = avatarGenerator.randomFnc(this.arrayAvatar);
-            console.log('old:', this.arrayAvatar[this.oldRandom]);
-            console.log('cur:', this.arrayAvatar[this.curRandom]);
-            //this.viewer.eq(this.selectAvatar).show();
-            /* 
-            if (this.arrayAvatar.length === 1) {
-                this.loop();
-               while (this.selectAvatar !== idx) {
-                    this.randomFnc();
-                    this.arrayAvatar = [0,1,2,3,4];
-                    return this.selectAvatar;
-                    break;
-                }
-            }*/
-        }/*,
-        loop : function () {   // 한 번 다 돌았을 때
-            console.log('지금', this.selectAvatar, this.idx)
-            while ( this.lastSelect === this.idx) {
-                this.lastSelect = this.selectAvatar;
-                this.randomFnc();
-                return this.lastSelect;
+            this.arrayAvatar.splice(this.curRandom,1);
+            this.oldIdx = this.curIdx;
+            this.viewer.eq(this.oldIdx).hide();
+            this.randomFnc();
+            this.viewer.eq(this.curIdx).show();
+            if ( this.arrayAvatar.length === 0) {
+                this.setting();
             }
-        }*/
+            // console.log(this.oldIdx, this.curIdx, this.arrayAvatar);
+        },
+        randomWhile : function () {
+            while (this.oldIdx === this.curIdx) {
+                this.randomFnc();
+                // console.log('변경');
+            }
+        }
     };
     $(function(){
         avatarGenerator.init();
