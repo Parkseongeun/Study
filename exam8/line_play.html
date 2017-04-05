@@ -66,17 +66,16 @@
         setElements : function () {
             this.btn = $('.btn_random');
             this.viewer = $('.swiper-slide');
-            this.arrayAvatar = [0,1,2,3,4];
-            this.lastSelect;
+            this.arrayAvatar = ['red','orange','yellow','green','blue'];
+            this.oldRandom = this.curRandom;
         },
         bindEvents : function () {
             this.btn.on('click', $.proxy(this.avatarSelect, this));
         },
-        loopSelect : function () {
-        },
         randomFnc : function () {
-                this.random = Math.floor(Math.random()*this.arrayAvatar.length); // 배열의 인덱스 값을 랜덤으로 추출
-            return this.random;
+            this.curRandom = Math.floor(Math.random()*this.arrayAvatar.length); // 배열의 인덱스 값을 랜덤으로 추출
+            this.oldRandom = this.curRandom;
+            return this.curRandom;
         },
         /*
         setting : function () { // 초기 랜덤 값 설정
@@ -86,28 +85,30 @@
         },
         */
         avatarSelect : function () {   // 5개 랜덤 실행
-            var idx = this.randomFnc();
+            this.idx = this.randomFnc();
             //console.log(idx,  this.arrayAvatar);
-            this.selectAvatar = this.arrayAvatar.splice(idx,1)
+            this.selectAvatar = this.arrayAvatar.splice(this.idx,1)
             //console.log('최종 : ' , this.selectAvatar);
             //var idx = avatarGenerator.randomFnc(this.arrayAvatar);
-            this.viewer.eq(this.selectAvatar).show().siblings().hide();
-            //console.log(this.selectAvatar, this.random, this.arrayAvatar, this.arrayAvatar.length);
-       
-            if (this.arrayAvatar.length !== 1) {
-                console.log(this.selectAvatar, idx)
-                while (this.selectAvatar !== idx) {
+            console.log('old:', this.arrayAvatar[this.oldRandom]);
+            console.log('cur:', this.arrayAvatar[this.curRandom]);
+            //this.viewer.eq(this.selectAvatar).show();
+            /* 
+            if (this.arrayAvatar.length === 1) {
+                this.loop();
+               while (this.selectAvatar !== idx) {
                     this.randomFnc();
                     this.arrayAvatar = [0,1,2,3,4];
-                    break;
                     return this.selectAvatar;
+                    break;
                 }
-            }
-        }
-        /* ,
+            }*/
+        }/*,
         loop : function () {   // 한 번 다 돌았을 때
-            while ( this.lastSelect === ) {
+            console.log('지금', this.selectAvatar, this.idx)
+            while ( this.lastSelect === this.idx) {
                 this.lastSelect = this.selectAvatar;
+                this.randomFnc();
                 return this.lastSelect;
             }
         }*/
