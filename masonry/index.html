@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>exam - masonry</title>
+<style>
+/* temporary css */
+*{margin:0;padding:0}
+body{font-size:14px;font-family:"나눔고딕",NanumGothic,"굴림",Gulim,Sans-serif;line-height:1.5}
+h1,h2,h3,h4,h5,h6{font-size:14px}
+ul,li{list-style:none}
+button{font-size:14px;font-family:"나눔고딕",NanumGothic,"굴림",Gulim,Sans-serif;line-height:1.5;cursor:pointer}
+button::-moz-focus-inner{padding:0;border:0}
+.grid-wrap:after{display:block;content:"";clear:both}
+.grid-item{float:left;width:100px;height:100px;background-color:#e5e5e5;border:3px solid #666;border-radius:5px}
+.grid-item--width2{width:200px}
+.grid-item--width3{width:300px}
+.grid-item--width4{width:400px}
+.grid-item--height2{height:200px}
+.grid-item--height3{height:300px}
+.grid-item--height4{height:400px}
+/* //temporary css */
+</style>
+</head>
+<body>
+<div class="grid-wrap">
+  <!-- width of .grid-sizer used for columnWidth -->
+  <div class="grid-item"></div>
+  <div class="grid-item grid-item--width2"></div>
+  <div class="grid-item grid-item--width2 grid-item--height2"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item grid-item--width3 grid-item--height4"></div>
+  <div class="grid-item grid-item--width2"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item grid-item--height3"></div>
+  <div class="grid-item grid-item--width2 grid-item--height2"></div>
+  <div class="grid-item grid-item--width2"></div>
+  <div class="grid-item grid-item--height4"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item grid-item--height2"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item grid-item--width3 grid-item--height4"></div>
+  <div class="grid-item grid-item--width4 grid-item--height3"></div>
+  <div class="grid-item"></div>
+</div>
+
+<!-- [ Javascript Area ] -->
+<!-- Libs -->
+<script src="../js/libs/jquery-1.12.4.min.js"></script>
+<script src="../js/libs/masonry.pkgd.min.js"></script>
+<script>
+(function (win, $) {
+    'use strict';
+    $(function () {
+
+    });
+})(window, window.jQuery);
+</script>
+</body>
+</html>

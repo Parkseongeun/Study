@@ -1,0 +1,31 @@
+
+모든 ui는 인덱스로 체크!
+
+
+$('li').index();
+//형제들끼리의 index로 체크하는 방법과
+
+var tabidx = $('.cast_tab ul li a');
+// 태그를 저장해놓고, 
+click, function(e) {
+    var target = $(e.currentTarget);
+    tabObj.index(target);
+    //클릭한 것들이 이 안에서 몇번째인지 체크하는 방법
+    //형제끼리 index를 체크하기 껄끄러운 상황에서 용이하다.
+});
+
+// tab, slide (show/hide)
+// hash
+
+$(location.hash) //초기값 선택자
+
+location.hash = '#' + 클릭이나 선택된 attr(id)
+
+
+bonus**
+
+뒤로가기를 눌르면 #가 바뀌는데 그때 탭도 바뀐다.
+hashChange 함수에 넣는다.
+
+
+Masonry 마크업도!!
