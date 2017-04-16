@@ -98,26 +98,33 @@ p{margin-bottom:30px;padding-bottom:10px;border-bottom:2px solid #da0707;font-si
 (function (win, $) {
     'use strict';
 
+    win.stProject = win.stProject || {};
     // Checkbox Plugin
-    var chkCustom = function (obj) {
-        this.obj = obj;
+    win.stProject.chkCustom = function (args) {
+        var defParams = {
+            chkBox : '.check_box',
+            chkInput : '.ipt_chk',
+            chkActive : 'chk_active'
+        };
+        this.opts = $.extend({}, defParams, (args || {}));
+        if (!(this.chkBox = $(this.opts.chkBox)).length) return;
         this.init();
-    }
-    chkCustom.prototype = {
+    };
+    win.stProject.chkCustom.prototype = {
         init : function () {
             this.setElements();
             this.initLayout();
             this.bindEvents();
         },
         setElements : function () {
-            this.chkbox = this.obj;
-            this.chk = this.chkbox.find('input[type=checkbox]');
+            this.obj = this.chkBox;
+            this.chk = this.obj.find('input[type=checkbox]');
         },
         initLayout : function () {
            if ( this.chk.filter(':checked') ) {
-               this.chk.closest(this.chkbox).removeClass('chk_active');
+               this.chk.closest(this.obj).removeClass(this.opts.chkActive);
            } else {
-                this.chk.closest(this.chkbox).addClass('chk_active');
+                this.chk.closest(this.obj).addClass(this.opts.chkActive);
            }
         },
         bindEvents : function () {
@@ -125,7 +132,7 @@ p{margin-bottom:30px;padding-bottom:10px;border-bottom:2px solid #da0707;font-si
         },
         onChangeFunc : function (e) {
             var _this = $(e.currentTarget);
-            _this.closest(this.chkbox).toggleClass('chk_active', _this.prop('checked'));
+            _this.closest(this.chkbox).toggleClass(this.opts.chkActive, _this.prop('checked'));
         }
     };
     $.fn.chkCustomPlugIn = function () {
@@ -134,15 +141,14 @@ p{margin-bottom:30px;padding-bottom:10px;border-bottom:2px solid #da0707;font-si
         }
     };
     $(function () {
-        $('.check_box').chkCustomPlugIn();
+        win.stChkFunc = new win.stProject.chkCustom();
     });
 
     // Radio Plugin
-    win.stProject = win.stProject || {};
     win.stProject.radioCustom = function (args) {
         var defParams = {
             radioBox : '.radio_box',
-            radioChk : 'chk_active'
+            radioActive : 'chk_active'
         };
         this.opts = $.extend({}, defParams, (args || {}));
         if (!(this.radioBox = $(this.opts.radioBox)).length) return;
@@ -160,9 +166,9 @@ p{margin-bottom:30px;padding-bottom:10px;border-bottom:2px solid #da0707;font-si
         },
         initLayout : function () {
            if ( this.rdo.filter(':checked') ) {
-               this.rdo.closest(this.obj).removeClass(this.opts.radioChk);
+               this.rdo.closest(this.obj).removeClass(this.opts.radioActive);
            } else {
-                this.rdo.closest(this.obj).addClass(this.opts.radioChk);
+                this.rdo.closest(this.obj).addClass(this.opts.radioActive);
            }
         },
         bindEvents : function () {
@@ -179,7 +185,7 @@ p{margin-bottom:30px;padding-bottom:10px;border-bottom:2px solid #da0707;font-si
                 var target = $(this),
                     targetName = target.attr('name');
                 if ( _this.rdoName === targetName ) {
-                    target.closest(this.obj).toggleClass(this.opts.radioChk, target.prop('checked'));
+                    target.closest(this.obj).toggleClass(this.opts.radioActive, target.prop('checked'));
                 }
             });
         }
@@ -194,7 +200,6 @@ p{margin-bottom:30px;padding-bottom:10px;border-bottom:2px solid #da0707;font-si
     });
 
     // Selectbox Plugin
-    win.stProject = win.stProject || {};
     win.stProject.selectCustom = function (args) {
         var defParams = {
             selectBox : '.select_box',
