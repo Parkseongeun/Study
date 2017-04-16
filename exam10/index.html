@@ -185,7 +185,7 @@ p{margin-bottom:30px;padding-bottom:10px;border-bottom:2px solid #da0707;font-si
                 var target = $(this),
                     targetName = target.attr('name');
                 if ( _this.rdoName === targetName ) {
-                    target.closest(this.obj).toggleClass(this.opts.radioActive, target.prop('checked'));
+                    target.closest(this.obj).toggleClass(this.radioActive, target.prop('checked'));
                 }
             });
         }
