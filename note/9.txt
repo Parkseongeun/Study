@@ -33,6 +33,9 @@ function(){
 window.객체 아니고
 win.객체
 
+this.opts = $.extend({},defParms,(args || {}));
+opts 라는 그룹에 빈객체{}를 넣고 defParms 엎고, args를 엎는다(이때 args가(인자값이) 따로 없으면 {}객체로 덮기떄문에 defParms가 덮인다.
+
 
 
 ------------------------------
