@@ -180,7 +180,7 @@ p{margin-bottom:30px;padding-bottom:10px;border-bottom:2px solid #da0707;font-si
             this.rdoFunc();
         },
         rdoFunc : function () {
-            var _this = this;
+            var _this = this; // proxy 와비슷 
             this.rdo.filter( function () {
                 var target = $(this),
                     targetName = target.attr('name');
@@ -201,8 +201,9 @@ p{margin-bottom:30px;padding-bottom:10px;border-bottom:2px solid #da0707;font-si
 
     // Selectbox Plugin
     win.stProject.selectCustom = function (args) {
+    // win.stProject.selectCustom = function (container, args) {
         var defParams = {
-            selectBox : '.select_box',
+            selectBox : '.select_box', // container 로 전체 박스를 가져오기때문에 필요가 없어진다.
             selectActive : '.select_menu',
             selectOpen : 'opened'
         };
