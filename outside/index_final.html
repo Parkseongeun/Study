@@ -113,6 +113,7 @@ button::-moz-focus-inner{padding:0;border:0}
             this.bindEvents();
         },
         reInit : function () { // load후에 실행
+            // reInit 으로 다른 함수도 집어넣을 수 있게 (확장성) 따로 뺀다.
             this.nextFocusFunc();
         },
         setElements : function () { // 요소들의 집합
@@ -143,9 +144,13 @@ button::-moz-focus-inner{padding:0;border:0}
         },
         layerClose : function () { // 레이어 닫히는 함수
            this.layerObj.triggerHandler('clickoutside'); // 팝업 clickoutside 되어라
+           // trigger 와 다름
+           // 의도치않은핸들러가 실행되지 않게
+           // click을 했을 때 그 실행되는 함수만 발생
         },
         outSideEvents : function () { // 팝업 이외의 것에 초점 이동시 (클릭 시) outside이벤트 발생되어라
             this.layerObj.on('clickoutside touchendoutside', $.proxy(this.layerClickOutside, this));
+            //touchendoutside 는 clickoutside가 작동안되는 기기를 대응 (아이폰5)
         },
         escapeFunc : function (e) { // 언제 닫히는지 - esc 초점되었을 떄
             var keyCode = e.which || e.keyCode; // key에 대한 코드를 keyCode에 저장
@@ -208,8 +213,13 @@ button::-moz-focus-inner{padding:0;border:0}
         },
         outCallback : function (type) { // 각 함수들의 액션을 완전히 끝내버리는 함수인듯.
             var callbackObject = this.opts[type];
+            // var callbackObject = function(){ }
+            // this.opts.type();
+            // this.opts['type']();
+            // 두가지로 접근가능하다. 키값을 갖고 올거기떄문에, 
+
             if (callbackObject !== null) {
-                callbackObject();
+                callbackObject(); //null이 아니면 실행구문으로 
             }
         }
     };
@@ -276,10 +286,13 @@ button::-moz-focus-inner{padding:0;border:0}
                 closeAfter : $.proxy(this.closeAfter, this)
             });
         },
+        // 확장성 떄문에 씀
         viewBefore : function () { // 보여질 때
             if (win.console) win.console.log('layer View Before');
         },
         viewAfter : function () { // 보여진 후
+            // 예를 들어서 팝업 내에 슬라이드가 존재할 수 있는데, 팝업이 none되었을 때 swiper의 높이값 같은걸 미리 가져와야할 경우 
+            // Swiper(); 특정 기능을 실행 할 수 있게 미리 정의해 놓은 것......
             if (win.console) win.console.log('layer View After');
         },
         closeBefore : function () { // 숨겨질 때 
@@ -291,6 +304,7 @@ button::-moz-focus-inner{padding:0;border:0}
     };
     $(function () {
         win.examYours = new win.examProject.yoursObject(); // 실행
+        // 개발쪽에서 활용할 수 있게 만들어놓는 것 examYours
         // new로 선언하면 객체화 된다.
     });
 })(window, window.jQuery);
