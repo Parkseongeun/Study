@@ -1,5 +1,5 @@
 # 6. 객체(Object)
-
+<br><br>
 ## 6.1 객체란?
 > 속성과 값을 담을 수 있는 구문으로 객체를 담을 수도있고, 함수를 담을 수도 있다.
 
@@ -9,12 +9,12 @@
 - 배열에선 var arry = []; 리터럴 방식을 권장한다.
 - 대괄호[]를 사용해 생성하고 안에 쉼표로 구분해 자료를 입력한다.
 
-
+<br>
 ## 6.2 객체지향 프로그래밍 
 > 가독성이 좋으며, 유지보수에 용이하다.
 [하이브랩컨벤션](https://github.com/telltrue33/telltrue33.github.io/blob/master/convention/03_Prototype.md)
 
-
+<br>
 > for문을 돌려서 객체 가져오는 방법 
 
 ```
@@ -28,8 +28,7 @@ for( var key in obj) {
 ```
 delecte obj.tel;
 ```
-
-
+<br>
 ### 기본구조
 ```html
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -58,7 +57,7 @@ delecte obj.tel;
 </script>
 </body>
 ```
-
+<br>
 ### 플러그인 제작
 > $.fn.함수 (플러그인 선언)
 
@@ -77,9 +76,7 @@ delecte obj.tel;
  })(window, window.jQuery);
 ```
 
-
-<br>
-
+<br><br>
 ## 6.3 객체 내부 this 관리
 
 - $.proxy(this.function, this)
@@ -99,8 +96,7 @@ btn.on('click', function(){
 ```
 저장하고 쓰는게 셀렉터를 또 읽지 않는 이유로 성능최적화에 더 좋다.
 
-
-
+<br><br>
 ## 6.4 trim() 의 사용
 > 문자를 비교하거나 했을 떄 실수로 들어가는 것들(공백) 제외하고 **문자만!** 가져올 수 있다.
 
