@@ -20,8 +20,8 @@ a = function(){};  // function
 ## jQuery API 활용
 > [https://oscarotero.com/jquery/](https://oscarotero.com/jquery/)
 
-<br>
-### 많이 쓰이는 메소드 정리
+
+**많이 쓰이는 메소드 정리**
 > [Effects](https://github.com/Parkseongeun/Study/blob/gh-pages/exam3/jquery_reference.md)
 
 <br><br>

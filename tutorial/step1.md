@@ -12,7 +12,8 @@ $('#idName').메소드(); // jquery 문법에서의 id로 태그 접근
 $('.classNmae').메소드(); // jquery 문법에서의 class로 태그 접근
 ```
 <br>
-### ie8 이하 크로스브라우징 이슈 
+**ie8 이하 크로스브라우징 이슈 **
+
 - [http://caniuse.com](http://caniuse.com) 에서 체크 가능
 - javascript vs jQuery 셀렉터 체크
   1. [#selector_jQuery](https://parkseongeun.github.io/Study/exam1/selector_jQuery.html)
@@ -26,8 +27,10 @@ $('.classNmae').메소드(); // jquery 문법에서의 class로 태그 접근
 - previousSibling()
 - nextSibling()
 ```
+
 <br>
-### get(0)
+**get(0)**
+
 > jQuery 선택자에 get(0)을 붙이면 javascript선택자로 바꿀 수 있다(속도가 더 빠름)
 
 ```
@@ -37,7 +40,8 @@ html('값') -> .get(0).innerHTML = 값;
 <br><br>
 ## 1.2 함수 선언 방법
 <br>
-### 선언함수 선언 방식
+**선언함수 선언 방식**
+
 > 함수 선언 전, 후에 함수 호출이 가능(함수 호이스팅)한 방식
 
 ```javascript
@@ -46,8 +50,10 @@ function 함수명() {
 }
 함수명();
 ```
-<br>
-### 익명함수 선언 방식
+
+
+**익명함수 선언 방식**
+
 > 함수를 호출하는 데에 있어 혼란주지 않기 위해 함수 밑에 호출하는 방식, 함수 호이스팅 방지의 이유로 권장한다.
 
 ```javascript
@@ -107,13 +113,12 @@ $(function(){  // 권장약어
  ~~
 })
 ```
-<br><br>
 
+<br><br>
 ## 1.6 .on() vs .bind()
 > .on() : DOM이 동적으로 생성될 경우 계속 탐색 후 실행한다.<br>.bind() : 새로 생성된 DOM은 처리 불가능하다.
 
 <br><br>
-
 ## 1.7 jQuery의 활용
 > 비슷한 형태, 성격끼리 묶어 놓는다. (유지보수에 용이하다)
 
