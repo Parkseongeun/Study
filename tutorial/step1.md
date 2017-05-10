@@ -11,15 +11,17 @@ document.getElementsByClassName(); // javascript 문법에서의 class로 태그
 $('#idName').메소드(); // jquery 문법에서의 id로 태그 접근
 $('.classNmae').메소드(); // jquery 문법에서의 class로 태그 접근
 ```
-<br>
-**ie8 이하 크로스브라우징 이슈 **
+
+
+
+**ie8 이하 크로스브라우징 이슈**
 
 - [http://caniuse.com](http://caniuse.com) 에서 체크 가능
 - javascript vs jQuery 셀렉터 체크
-  1. [#selector_jQuery](https://parkseongeun.github.io/Study/exam1/selector_jQuery.html)
-  2. [#selector_javascript](https://parkseongeun.github.io/Study/exam1/selector_javascript.html)
-  3. [#selector2_jQuery](https://parkseongeun.github.io/Study/exam1/selector2_jQuery.html)
-  4. [#selector2_javascript](https://parkseongeun.github.io/Study/exam1/selector2_javascript.html)
+  1. [selector_jQuery](https://parkseongeun.github.io/Study/exam1/selector_jQuery.html)
+  2. [selector_javascript](https://parkseongeun.github.io/Study/exam1/selector_javascript.html)
+  3. [selector2_jQuery](https://parkseongeun.github.io/Study/exam1/selector2_jQuery.html)
+  4. [selector2_javascript](https://parkseongeun.github.io/Study/exam1/selector2_javascript.html)
 
 ```
 - getElementsByClassName (querySelectorAll로는 태그 접근이 가능하다)
@@ -28,7 +30,7 @@ $('.classNmae').메소드(); // jquery 문법에서의 class로 태그 접근
 - nextSibling()
 ```
 
-<br>
+
 **get(0)**
 
 > jQuery 선택자에 get(0)을 붙이면 javascript선택자로 바꿀 수 있다(속도가 더 빠름)
@@ -39,7 +41,9 @@ html('값') -> .get(0).innerHTML = 값;
 
 <br><br>
 ## 1.2 함수 선언 방법
-<br>
+
+
+
 **선언함수 선언 방식**
 
 > 함수 선언 전, 후에 함수 호출이 가능(함수 호이스팅)한 방식
